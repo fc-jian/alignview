@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-mono: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f8f4;
+  color: #1f2520;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.alignment-surface {
+  overflow-x: auto;
+  border: 1px solid #d6d3d1;
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 12px;
+}
+
+.alignment-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) max-content;
+  align-items: center;
+  min-width: max-content;
+  border-bottom: 1px solid #f1eee9;
+}
+
+.alignment-row:last-child {
+  border-bottom: 0;
+}
+
+.alignment-ruler-row {
+  color: #57534e;
+}
+
+.alignment-label {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  overflow: hidden;
+  min-height: 28px;
+  padding: 5px 10px 5px 0;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.alignment-chars,
+.alignment-ruler {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+  white-space: pre;
+}
+
+.alignment-ruler {
+  display: inline-flex;
+  letter-spacing: 0;
+}
+
+.residue {
+  display: inline-flex;
+  width: 1.35ch;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  color: #1c1917;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.ruler-cell {
+  display: inline-flex;
+  width: 1.35ch;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.residue-hovered {
+  outline: 2px solid #0f766e;
+  outline-offset: -1px;
+}
+
+.residue-gap {
+  background: #e7e5e4;
+  color: #78716c;
+}
+
+.residue-nt-a {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.residue-nt-c {
+  background: #dcfce7;
+  color: #14532d;
+}
+
+.residue-nt-g {
+  background: #fef3c7;
+  color: #78350f;
+}
+
+.residue-nt-tu {
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.residue-aa-hydrophobic {
+  background: #ede9fe;
+  color: #3b0764;
+}
+
+.residue-aa-polar {
+  background: #ccfbf1;
+  color: #134e4a;
+}
+
+.residue-aa-acidic {
+  background: #fed7aa;
+  color: #7c2d12;
+}
+
+.residue-aa-basic {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.residue-ambiguous {
+  background: #f5f5f4;
+  color: #44403c;
+}
+
+.residue-conserved {
+  background: #bbf7d0;
+  color: #14532d;
+  font-weight: 700;
+}
+
+.residue-consensus {
+  background: #e0f2fe;
+  color: #0c4a6e;
+}
+
+.residue-variable {
+  background: #fafaf9;
+  color: #57534e;
+}
+
+.residue-difference {
+  background: #fecaca;
+  color: #7f1d1d;
+  font-weight: 700;
+}
+
+.consensus-cell {
+  opacity: 0.82;
+}
