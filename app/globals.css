@@ -108,6 +108,19 @@ textarea {
   outline-offset: -1px;
 }
 
+.residue-selected {
+  box-shadow: inset 0 0 0 1px #047857;
+  filter: saturate(1.25);
+}
+
+.residue-selection-preview {
+  box-shadow: inset 0 0 0 1px #34d399;
+}
+
+.residue-selected.residue-selection-preview {
+  box-shadow: inset 0 0 0 1px #047857;
+}
+
 .residue-gap {
   background: #e7e5e4;
   color: #78716c;

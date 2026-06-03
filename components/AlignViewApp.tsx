@@ -60,25 +60,30 @@ export function AlignViewApp() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl gap-6 px-6 py-6 lg:grid-cols-[420px_minmax(0,1fr)]">
+      <div className="mx-auto max-w-7xl px-6 py-6">
         <section className="rounded border border-stone-300 bg-white p-4">
-          <SequenceInput onSubmit={submitAlignment} isSubmitting={isSubmitting} />
+          <SequenceInput
+            onSubmit={submitAlignment}
+            isSubmitting={isSubmitting}
+            viewerControls={
+              <ViewerControls
+                colorMode={colorMode}
+                onColorModeChange={setColorMode}
+                blockSize={blockSize}
+                onBlockSizeChange={setBlockSize}
+                showConsensus={showConsensus}
+                onShowConsensusChange={setShowConsensus}
+                showRuler={showRuler}
+                onShowRulerChange={setShowRuler}
+                variant="inline"
+              />
+            }
+          />
         </section>
 
-        <section className="min-w-0">
-          <ViewerControls
-            colorMode={colorMode}
-            onColorModeChange={setColorMode}
-            blockSize={blockSize}
-            onBlockSizeChange={setBlockSize}
-            showConsensus={showConsensus}
-            onShowConsensusChange={setShowConsensus}
-            showRuler={showRuler}
-            onShowRulerChange={setShowRuler}
-          />
-
+        <section className="mt-6 min-w-0">
           {error ? (
-            <div className="mt-4 rounded border border-red-300 bg-red-50 p-4 text-sm text-red-900">
+            <div className="rounded border border-red-300 bg-red-50 p-4 text-sm text-red-900">
               <div className="font-semibold">{error}</div>
               {details ? <div className="mt-2 text-red-800">{details}</div> : null}
             </div>
@@ -92,11 +97,7 @@ export function AlignViewApp() {
               showConsensus={showConsensus}
               showRuler={showRuler}
             />
-          ) : (
-            <div className="mt-4 rounded border border-stone-300 bg-white p-6 text-sm text-stone-600">
-              No alignment loaded.
-            </div>
-          )}
+          ) : null}
         </section>
       </div>
     </main>

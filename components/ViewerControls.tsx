@@ -12,6 +12,7 @@ type ViewerControlsProps = {
   onShowConsensusChange: (show: boolean) => void;
   showRuler: boolean;
   onShowRulerChange: (show: boolean) => void;
+  variant?: "card" | "inline";
 };
 
 export function ViewerControls({
@@ -22,7 +23,8 @@ export function ViewerControls({
   showConsensus,
   onShowConsensusChange,
   showRuler,
-  onShowRulerChange
+  onShowRulerChange,
+  variant = "card"
 }: ViewerControlsProps) {
   const [blockSizeInput, setBlockSizeInput] = useState(String(blockSize));
 
@@ -43,10 +45,15 @@ export function ViewerControls({
     }
   }
 
-  return (
-    <div className="rounded border border-stone-300 bg-white p-4">
-      <div className="grid gap-3 md:grid-cols-[minmax(160px,220px)_140px_1fr]">
-        <label className="block text-sm font-medium text-stone-800">
+  const content = (
+    <div
+      className={
+        variant === "inline"
+          ? "flex flex-wrap items-end gap-3"
+          : "grid gap-3 md:grid-cols-[minmax(160px,220px)_140px_1fr]"
+      }
+    >
+        <label className={variant === "inline" ? "block min-w-[180px] text-sm font-medium text-stone-800" : "block text-sm font-medium text-stone-800"}>
           Coloring
           <select
             value={colorMode}
@@ -62,7 +69,7 @@ export function ViewerControls({
           </select>
         </label>
 
-        <label className="block text-sm font-medium text-stone-800">
+        <label className={variant === "inline" ? "block w-[132px] text-sm font-medium text-stone-800" : "block text-sm font-medium text-stone-800"}>
           Block size
           <input
             type="number"
@@ -87,8 +94,13 @@ export function ViewerControls({
           </label>
         </div>
       </div>
-    </div>
   );
+
+  if (variant === "inline") {
+    return content;
+  }
+
+  return <div className="rounded border border-stone-300 bg-white p-4">{content}</div>;
 }
 
 function clamp(value: number, min: number, max: number): number {

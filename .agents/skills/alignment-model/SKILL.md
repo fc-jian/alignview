@@ -1,6 +1,6 @@
 ---
 name: alignment-model
-description: Use when implementing or reviewing AlignView core data logic: parsed FASTA records, aligned FASTA parsing, 1-based coordinate maps, original/alignment numbering, column summaries, consensus, conservation, and sequence type detection.
+description: Use when implementing or reviewing AlignView core data logic (parsed FASTA records, aligned FASTA parsing, 1-based coordinate maps, original/alignment numbering, column summaries, consensus, conservation, and sequence type detection).
 ---
 
 # Alignment Model
